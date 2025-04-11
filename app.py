@@ -1205,15 +1205,6 @@ def show_settings_page(user_id):
     with st.expander("💡 Get Budget Recommendation"):
         st.info(get_budget_recommendation(user_id))
 
-    with st.expander("🎙️ Voice Expense Entry"):
-        if st.button("Listen & Add Expense"):
-            result = listen_and_parse_expense()
-            if result:
-                add_transaction(user_id, result['type'], result['amount'], result['category'], result['date'], note="")
-                st.success("Voice expense added!")
-                st.rerun()
-            else:
-                st.error("Could not recognize the expense.")
 
 
 # Main app logic
